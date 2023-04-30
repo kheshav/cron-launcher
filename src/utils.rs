@@ -1,22 +1,24 @@
-use std::time::{SystemTime, UNIX_EPOCH};
+use chrono::prelude::*;
+use crate::log;
 
+pub fn format_output(mode: log::LogType  ,value: &str) -> String {
 
-pub fn format_output(value: &str){
-    let start = SystemTime::now();
-    let since_the_epoch = start
-        .duration_since(UNIX_EPOCH)
-        .expect("Time went backwards");
-    println!("[{}] {}",since_the_epoch.as_millis(),value);
+    println!("[{}][{}][{}] {}",log::LogType::value(&mode),Utc::now(),Utc::now().timestamp_millis(),value);
+    format!("[{}][{}][{}] {}",log::LogType::value(&mode),Utc::now(),Utc::now().timestamp_millis(),value)
 }
 
-pub fn format_output_command(value: &str){
+
+pub fn format_output_command(value: &str) -> String {
     println!("{}",value);
+    value.to_string()
 }
 
-pub fn output_separator_start(){
-    format_output("-------BEGIN---------");
+pub fn output_separator_start() -> String {
+    println!("-------BEGIN---------");
+    String::from("-------BEGIN---------")
 }
 
-pub fn output_separator_end(){
-    format_output("--------END----------");
+pub fn output_separator_end() -> String {
+    println!("--------END----------");
+    String::from("--------END----------")
 }

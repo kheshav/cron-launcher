@@ -27,7 +27,7 @@ done
 mkdir -p /tmp/cron-launcher
 cp -rv conf /tmp/cron-launcher
 cp -v install.sh /tmp/cron-launcher
-cp -v ./target/$(arch)/release/cron-launcher /tmp/cron-launcher
+cp -v ./target/${arch}/release/cron-launcher /tmp/cron-launcher
 chmod +x /tmp/cron-launcher/cron-launcher
 
 # Generate tar files

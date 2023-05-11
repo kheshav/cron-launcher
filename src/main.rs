@@ -37,7 +37,7 @@ fn main() {
     } else {
 
         my_log.info("Output:");
-        utils::format_output_command(String::from_utf8_lossy(&output.stdout).to_string().as_str());
+        my_log.info(utils::format_output_command(String::from_utf8_lossy(&output.stdout).to_string().as_str()).as_str());
     }
     my_log.info(format!("Status Code: {}",status_code.to_string().as_str()).as_str());
     my_log.info(&unique_id);

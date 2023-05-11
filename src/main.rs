@@ -16,6 +16,7 @@ fn main() {
     let my_settings = Settings::initialise();
     let mut args: Vec<String> = env::args().collect();
     args.remove(0);
+    args.remove(0);
     let argument: String = args.join(" ");
     let unique_id: String = format!("{}_{}",general_purpose::STANDARD_NO_PAD.encode(argument.as_bytes()),Utc::now().timestamp_micros());
     let my_log = Log::initialise(my_settings.to_owned(), unique_id.clone());

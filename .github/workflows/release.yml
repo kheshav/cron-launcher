@@ -16,6 +16,7 @@ jobs:
           sed -i "0,/0.1.0/ s/0.1.0/${GITHUB_REF#refs/*/}/" Cargo.toml
           sed -i 's%conf/settings%/opt/cron-launcher/conf/settings%' src/settings.rs
           sed -i 's%/tmp/log%/var/log/cron-launcher%' conf/settings.ini
+          sudo apt install pkg-config
       - name: Build package
         run: cargo build --release
       - name: Prepare release package

@@ -1,0 +1,27 @@
+name: integration-checks
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  cargo-check:
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        target:
+          [x86_64-unknown-linux-gnu]
+    runs-on: ${{matrix.os}}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: nightly
+          target: ${{matrix.target}}
+      - uses: Swatinem/rust-cache@v1
+        with:
+          key: ${{matrix.os}}-${{matrix.target}}
+      - run: cargo +nightly build --target=${{matrix.target}}

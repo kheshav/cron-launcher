@@ -26,7 +26,7 @@ fn main() {
         argument
     ).as_str());
     let output = Command::new(my_settings.to_owned().get_value("General", "SHELL", "bash"))
-        .arg("-c")
+       // .arg("-c")
         .arg(argument.clone())
         .output()
         .expect("failed to execute command");

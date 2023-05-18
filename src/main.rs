@@ -58,10 +58,10 @@ fn main() {
                 )
                 .unwrap();
 
-            let creds = Credentials::new(from, my_settings.get_value("Email", "SMTP_PASSWORD", ""));
+            let creds = Credentials::new(from, my_settings.to_owned().get_value("Email", "SMTP_PASSWORD", ""));
 
             // Open a remote connection to gmail
-            let mailer = SmtpTransport::relay("smtp.gmail.com")
+            let mailer = SmtpTransport::relay(my_settings.to_owned().get_value("Email","SMTP_SERVER","").as_str())
                 .unwrap()
                 .credentials(creds)
                 .build();

@@ -1,6 +1,14 @@
-# Cron-Launcher
+<h3 align="center">Simplify your cron ⚡️</h3>
+<p align="center">Cron-Launcher - a simple yet flexible cron launcher for Linux 🔥</p>
 
-A simple cron launcher for linux.
+<p align="center">
+<a href="https://opensource.org/license/gpl-3-0/"> <img alt="GPL-3.0 License" src="https://img.shields.io/badge/license-GPL-blue"> </a>
+<img src="https://github.com/kheshav/cron-launcher/actions/workflows/integration_checks.yml/badge.svg?style=flat-square" alt="Build and Tests">
+</p>
+
+
+## Prerequisites
+- Linux
 
 ## Installation
 
